@@ -1,5 +1,6 @@
 # Space
 functional demo of an issue
+
 I want the object to rotate in the direction it is dragged by the mouse, no matter which 
 direction it happens to be orientated at the time. As it is now, when I first drag the
 mouse to the right, the object rotates to the right about the screen Y axis as expected;
