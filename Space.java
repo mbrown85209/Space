@@ -25,10 +25,14 @@ package *********;
  * It seems to me that the mouse movement is transforming the objects
  * directly in their local coordinate system; but instead I think it
  * needs to transform the axis of rotation itself into the Object
- * Coordinate System before applying it to the object.
+ * Coordinate System before applying it to the object.  But I just can't
+ * figure out how to do it.
  * 
  * I suppose the solution will be in the touchDragged() method,
- * around lines 140 to 150.
+ * around lines 150 to 160.
+ *
+ * please comment and answer at:
+ * https://stackoverflow.com/questions/53788293/how-do-i-rotate-objects-using-mouse-input-in-libgdx
  */
 
 import com.badlogic.gdx.Game;
