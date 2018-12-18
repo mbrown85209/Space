@@ -1,5 +1,21 @@
 package *********;
 
+/*
+ * Display a bunch of cubes.
+ * 
+ * The purpose of this class is to exercise the rotation transformation,
+ * both on the view and on a model.
+ * 
+ * To rotate the view, drag with mouse right button.
+ * To rotate a cube, drag with the left button.
+ * 
+ * To implement this code in an existing LibGDX project, first set the package
+ * name (above), then in the desktop launcher class, in the main method,
+ * on the LwjglApplication line, replace the ApplicationListener parameter
+ * class to "Space"; like this:
+ *    	new LwjglApplication( new Space(), config );
+ */
+
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
@@ -20,22 +36,6 @@ import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Quaternion;
 import com.badlogic.gdx.math.Vector3;
-
-/**
- * Display a bunch of cubes.
- * 
- * The purpose of this class is to exercise the rotation transformation,
- * both on the view and on a model.
- * 
- * To rotate the view, drag with mouse right button.
- * To rotate a cube, drag with the left button.
- * 
- * To implement this code in an existing LibGDX project, first set the package
- * name (above), then in the desktop launcher class, in the main method,
- * on the LwjglApplication line, replace the ApplicationListener parameter
- * class to "Space"; like this:
- *    	new LwjglApplication( new Space(), config );
- */
 
 public class Space extends Game implements Screen, InputProcessor
 {
