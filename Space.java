@@ -48,10 +48,9 @@ import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
-import com.badlogic.gdx.math.Matrix4;
-import com.badlogic.gdx.math.Quaternion;
 import com.badlogic.gdx.math.Vector3;
 
+// ========================================================================= //
 public class Space extends Game implements Screen, InputProcessor
 {
 	PerspectiveCamera			camera;
@@ -65,6 +64,7 @@ public class Space extends Game implements Screen, InputProcessor
 	Vector3						dxdyDir;
 	float						dxdyLen;
 
+	// --------------------------------------------------------------------- //
 	@Override public void create()
 	{
 		Vector3 cubePositions[] = new Vector3[ 27 ];
@@ -83,6 +83,7 @@ public class Space extends Game implements Screen, InputProcessor
 		setScreen( this );
 	}
 
+	// --------------------------------------------------------------------- //
 	@Override public void show()
 	{
 		camera = new PerspectiveCamera( 67f, 3f, 2f );
@@ -107,6 +108,7 @@ public class Space extends Game implements Screen, InputProcessor
 		Gdx.graphics.requestRendering();
 	}
 
+	// --------------------------------------------------------------------- //
 	@Override public void render( float delta )
 	{
 		Gdx.gl.glClearColor( backgroundColor[0], backgroundColor[1],
@@ -123,7 +125,9 @@ public class Space extends Game implements Screen, InputProcessor
 		modelBatch.end();
 	}
 
-	@Override public boolean touchDown( int screenX, int screenY, int pointer, int button )
+	// --------------------------------------------------------------------- //
+	@Override public boolean touchDown( int screenX, int screenY, int pointer, 
+			int button )
 	{
 		touchedButton = button;
 		lastX = screenX;
@@ -131,6 +135,7 @@ public class Space extends Game implements Screen, InputProcessor
 		return true;
 	}
 
+	// --------------------------------------------------------------------- //
 	@Override public boolean touchDragged( int screenX, int screenY, int pointer )
 	{
 		lastX = screenX-lastX;
@@ -158,6 +163,7 @@ public class Space extends Game implements Screen, InputProcessor
 		return true;
 	}
 
+	// --------------------------------------------------------------------- //
 	// unused
 	@Override public void hide() {}
 	@Override public void resize( int w, int h ) {}
@@ -172,18 +178,21 @@ public class Space extends Game implements Screen, InputProcessor
 	@Override public boolean scrolled( int a )  { return false; }
 }
 
+// ========================================================================= //
 class Cube
 {
 	Vector3			position;
 	Model			model;
 	ModelInstance	modelInstance;
 	
+	// --------------------------------------------------------------------- //
 	Cube( Vector3 position, boolean selected  )
 	{
 		this.position = position;
 		compose( selected );
 	}
 	
+	// --------------------------------------------------------------------- //
 	void compose( boolean highlighted )
 	{
 		float w = 10f, d = 10f, h = 10f;
