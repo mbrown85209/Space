@@ -6,14 +6,29 @@ package *********;
  * The purpose of this class is to exercise the rotation transformation,
  * both on the view and on a model.
  * 
- * To rotate the view, drag with mouse right button.
- * To rotate a cube, drag with the left button.
- * 
  * To implement this code in an existing LibGDX project, first set the package
  * name (above), then in the desktop launcher class, in the main method,
  * on the LwjglApplication line, replace the ApplicationListener parameter
  * class to "Space"; like this:
  *    	new LwjglApplication( new Space(), config );
+ * 
+ * To rotate the view, drag with mouse right button.
+ * To rotate a cube, drag with the left button.
+ *
+ * I want the object to rotate in the direction it is dragged by the mouse,
+ * no matter which direction it happens to be orientated at the time. As it
+ * is now, when I first drag the mouse to the right, the object rotates to
+ * the right about the screen Y axis as expected; but then when I drag the
+ * mouse upward I want the object to rotate upward about the screen X axis,
+ * but instead it spins to the left about the screen Z axis.
+ *
+ * It seems to me that the mouse movement is transforming the objects
+ * directly in their local coordinate system; but instead I think it
+ * needs to transform the axis of rotation itself into the Object
+ * Coordinate System before applying it to the object.
+ * 
+ * I suppose the solution will be in the touchDragged() method,
+ * around lines 140 to 150.
  */
 
 import com.badlogic.gdx.Game;
