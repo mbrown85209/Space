@@ -65,8 +65,8 @@ public class Space extends Game implements Screen, InputProcessor
 	ModelBatch					modelBatch;
 	int							touchedButton;
 	int							lastX, lastY;
-	Vector3						dxdyDir;
-	float						dxdyLen;
+	Vector3						screenAOR;
+	float						screenAng;
 
 	// --------------------------------------------------------------------- //
 	@Override public void create()
@@ -82,7 +82,7 @@ public class Space extends Game implements Screen, InputProcessor
 			cubes[ i ] = new Cube( cubePositions[ i ], ( i == selectedCube ) );
 		
 		modelBatch = new ModelBatch();
-		dxdyDir = new Vector3();
+		screenAOR = new Vector3();
 		Gdx.input.setInputProcessor( this );
 		setScreen( this );
 	}
@@ -146,18 +146,18 @@ public class Space extends Game implements Screen, InputProcessor
 		lastY = screenY-lastY;
 
 		// distance of mouse movement
-		dxdyLen = (float) Math.sqrt( lastX*lastX + lastY*lastY );
+		screenAng = (float) Math.sqrt( lastX*lastX + lastY*lastY );
 		// direction vector of the AOR
-		dxdyDir.set( lastY/dxdyLen, lastX/dxdyLen, 0f );
+		screenAOR.set( lastY/screenAng, lastX/screenAng, 0f );
 		if ( touchedButton == 0 )
 		{
-			cubes[ selectedCube ].modelInstance.transform.rotate( dxdyDir, dxdyLen );
+			cubes[ selectedCube ].modelInstance.transform.rotate( screenAOR, screenAng );
 		}
 		else
 		{
 			// direction vector of the AOR
 			dxdyDir.scl( -1f );
-			camera.rotateAround( Vector3.Zero, dxdyDir, dxdyLen/5.5f );
+			camera.rotateAround( Vector3.Zero, screenAOR, screenAng/5.5f );
 			camera.update();
 		}
 
