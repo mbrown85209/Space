@@ -29,7 +29,7 @@ package *********;
  * figure out how to do it.
  * 
  * I suppose the solution will be in the touchDragged() method,
- * around lines 150 to 160.
+ * around lines 143 to 166.
  *
  * please comment and answer at:
  * https://stackoverflow.com/questions/53788293/how-do-i-rotate-objects-using-mouse-input-in-libgdx
@@ -155,9 +155,7 @@ public class Space extends Game implements Screen, InputProcessor
 		}
 		else
 		{
-			// direction vector of the AOR
-			dxdyDir.scl( -1f );
-			camera.rotateAround( Vector3.Zero, screenAOR, screenAng/5.5f );
+			camera.rotateAround( Vector3.Zero, screenAOR, -screenAng/5.5f );
 			camera.update();
 		}
 
